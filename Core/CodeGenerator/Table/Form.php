@@ -85,7 +85,7 @@ class Core_CodeGenerator_Table_Form extends Core_CodeGenerator_Table_Abstract
                 $code .= "\$element->setRequired();\n";
             }
 
-            if (!$field->isIdentity()){
+            if (!$field->isIdentity()) {
                 $tableName = $this->_table->getName();
                 $label = str_replace(ucfirst($tableName), "", (string) $field);
                 $code .= "\$element->setLabel('$label');\n";

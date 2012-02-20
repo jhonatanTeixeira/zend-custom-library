@@ -18,6 +18,11 @@ class Core_Db_DatabaseInfo_Table implements IteratorAggregate
         $this->_name = $name;
     }
 
+    public static function get($name)
+    {
+        return new self($name);
+    }
+
     private function _loadTable($tableName)
     {
         $fields = $this->_adapter->describeTable($tableName);
@@ -43,10 +48,16 @@ class Core_Db_DatabaseInfo_Table implements IteratorAggregate
         return $inflector->filter($this->_name);
     }
 
+    public function getFormName()
+    {
+        $inflector = new Core_Filter_TableNameToForm();
+        return $inflector->filter($this->_name);
+    }
+
     /**
      * gets the name of the table
      *
-     * @return <type> 
+     * @return string
      */
     public function getName()
     {

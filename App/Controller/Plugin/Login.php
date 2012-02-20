@@ -33,7 +33,7 @@ class App_Controller_Plugin_Login extends Zend_Controller_Plugin_Abstract
         }
 
         if (!$auth->hasIdentity()) {
-            $request->setControllerName('funcionario')
+            $request->setControllerName('user')
                 ->setActionName('login');
         }
     }

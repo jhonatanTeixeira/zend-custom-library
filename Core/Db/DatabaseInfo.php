@@ -46,6 +46,10 @@ class Core_Db_DatabaseInfo implements IteratorAggregate
 
     public function getIterator()
     {
+        if (!count($this->_data) > 0) {
+            $this->loadAllTables();
+        }
+        
         return new ArrayIterator($this->_data);
     }
 }
